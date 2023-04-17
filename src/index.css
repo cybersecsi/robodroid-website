@@ -5,10 +5,31 @@
 @tailwind utilities;
 
 @layer base {
+  body {
+    @apply overflow-x-hidden scroll-smooth;
+    @apply min-h-screen;
+    @apply bg-slate-100 dark:bg-slate-700;
+    @apply dark:text-slate-100;
+    @apply font-Josefin;
+  }
+  #root {
+    @apply min-h-screen;
+    @apply flex flex-col justify-between;
+  }
+  a {
+    @apply default-tr;
+  }
 }
 
 @layer components {
+  .robodroid-footer {
+    @apply bg-gray-900 text-slate-100 py-8;
+  }
 }
 
 @layer utilities {
+  .default-tr {
+    @apply transition-colors;
+    @apply duration-300;
+  }
 }
