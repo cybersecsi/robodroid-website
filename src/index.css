@@ -35,14 +35,14 @@
     @apply text-sm bg-slate-200 p-[2px] break-words;
   }
   header {
-    @apply bg-cDark h-20 py-2;
+    @apply fixed z-10 w-full bg-cDark h-20 py-2 default-tr;
   }
   footer {
     @apply bg-cDark text-slate-100 py-8;
   }
   .hero {
     @apply relative;
-    @apply h-[calc(100vh-5rem)];
+    @apply h-screen;
   }
   .particles {
     @apply absolute w-full h-full;
@@ -123,5 +123,8 @@
   .default-tr {
     @apply transition-colors;
     @apply duration-300;
+  }
+  .blur-bg-white {
+    @apply bg-white/95;
   }
 }

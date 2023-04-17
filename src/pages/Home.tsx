@@ -4,7 +4,8 @@ import Particles from 'react-tsparticles';
 import { Engine } from 'tsparticles-engine';
 import { ClipboardCode } from '@robodroid/components';
 import { particlesOptions } from '@robodroid/utils/particles';
-import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
+import { BsChevronLeft, BsChevronRight, BsChevronDoubleDown } from 'react-icons/bs';
+
 // Assets
 import appLogo from '@robodroid/assets/logo.png';
 import exampleKillChain from '@robodroid/assets/kill-chain-example.png';
@@ -63,6 +64,10 @@ const Home = () => {
           <a href='https://secsi.io' target='_blank' rel='noreferrer'>
             <button className='button-common'>Learn More</button>
           </a>
+          <BsChevronDoubleDown
+            size={62}
+            className='animate__animated animate__pulse animate__infinite absolute inset-x-0 mx-auto bottom-6 text-slate-100'
+          />
         </div>
       </div>
 
