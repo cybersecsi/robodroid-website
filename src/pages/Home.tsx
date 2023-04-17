@@ -1,10 +1,12 @@
+import { useCallback, useState } from 'react';
 import { loadFull } from 'tsparticles';
 import Particles from 'react-tsparticles';
-// RoboDroid specific
-import appLogo from '@robodroid/assets/logo.png';
 import { options } from '@robodroid/utils/particles';
-import { useCallback, useState } from 'react';
 import { Engine } from 'tsparticles-engine';
+
+// Assets
+import appLogo from '@robodroid/assets/logo.png';
+import exampleKillChain from '@robodroid/assets/kill-chain-example.png';
 
 // Library screenshots
 import k9MailSetup from '@robodroid/assets/k9-mail-setup.jpg';
@@ -62,20 +64,48 @@ const Home = () => {
         </div>
       </div>
 
+      {/* Overview section */}
+      <div className='bg-white p-8 flex flex-col gap-4 text-slate-800'>
+        <h2 className='text-center'>Overview</h2>
+        <div className='container card bg-slate-100 border-0 mx-auto gap-8 grid grid-cols-5 p-4'>
+          <div className='flex flex-col gap-4 col-span-2'>
+            <h3 className='text-center'>
+              ⚡ Manage Android machines with pre-defined behaviors for Cyber Range environments.
+            </h3>
+            <p className='text-justify'>
+              The goal of RoboDroid is to provide a simple way to introduce mobile components in
+              Cyber Range environments. Its main objective is to provide users with an easy-to-use
+              platform that allows them to simulate human-like behaviors and actions on mobile
+              devices. RoboDroid leverages Frida technology to run behaviors that are specific to
+              applications, while using ADB for all other operations. This powerful combination
+              enables users to create workflows of preset behaviors that can simulate a mobile
+              user&apos;s actions. One example of a workflow that can be used in a cyber range
+              environment involves simulating a mobile user receiving a phishing email, clicking on
+              the link contained in the email, and subsequently downloading a malware.
+            </p>
+          </div>
+          <div className='col-span-3'>
+            <img src={exampleKillChain} />
+          </div>
+        </div>
+      </div>
+
       {/* Library section */}
-      <div className='container flex flex-col mx-auto h-screen py-8 justify-around text-slate-800'>
+      <div className='container flex flex-col mx-auto h-screen py-8 justify-between text-slate-800'>
         <h2 className='text-center'>RoboDroid Library</h2>
         <div className='grid grid-cols-2 items-center gap-8'>
           {robodroidLibrary.map((behavior: ILibraryInfo, index: number) => {
             return (
               <div className={currentCarouselItem === index ? 'contents' : 'hidden'} key={index}>
                 <div className='flex justify-end'>
-                  <img
-                    src={behavior.screenshot}
-                    className='object-contain max-h-full border-[12px] rounded-lg border-slate-800 drop-shadow-2xl shadow-2xl h-[calc(100vh-200px)]'
-                  />
+                  <div className=' border-[12px] rounded-3xl border-slate-800 drop-shadow-2xl shadow-2xl'>
+                    <img
+                      src={behavior.screenshot}
+                      className='animate__animated animate__fadeIn rounded-xl object-contain max-h-full h-[calc(100vh-200px)]'
+                    />
+                  </div>
                 </div>
-                <div>
+                <div className='animate__animated animate__slideInDown'>
                   <h3>{behavior.name}</h3>
                   <p>{behavior.description}</p>
                 </div>
@@ -96,6 +126,22 @@ const Home = () => {
               />
             );
           })}
+        </div>
+      </div>
+
+      {/* Demo section */}
+      <div className='bg-white p-8'>
+        <div className='container flex mx-auto flex-col justify-center items-center gap-8 text-slate-800'>
+          <h2 className='text-center'>Demo</h2>
+          <iframe
+            width='853'
+            height='480'
+            src={`https://www.youtube.com/embed/jn8OQZyNLD4`}
+            frameBorder='0'
+            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+            allowFullScreen
+            title='Embedded youtube'
+          />
         </div>
       </div>
     </>
