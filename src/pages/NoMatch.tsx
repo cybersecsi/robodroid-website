@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 const NoMatch = () => {
   return (
     <>
-      <div className='inset-0 text-center flex flex-col justify-center p-8'>
+      <div></div> {/* Quickest way to fix the flex order */}
+      <div className='inset-0 text-center flex flex-col justify-center'>
         <div>
           <h5 className='text-sky-600 font-bold'>Error 404</h5>
           <h3 className='text-5xl font-bold py-4'>Page not found.</h3>

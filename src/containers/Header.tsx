@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Tippy from '@tippyjs/react';
 import { useScroll } from '@robodroid/utils/hooks';
 import appLogo from '@robodroid/assets/logo.png';
 
@@ -18,9 +19,11 @@ const Header = () => {
   return (
     <header className={headerFixed ? 'blur-bg-white' : ''}>
       <div className='mini-container flex mx-auto justify-between items-center'>
-        <Link to={'/'}>
-          <img src={appLogo} className='w-12 h-12' />
-        </Link>
+        <Tippy content='Homepage'>
+          <Link to={'/'}>
+            <img src={appLogo} className='w-12 h-12' />
+          </Link>
+        </Tippy>
         <div className='flex gap-4'>
           <a href='https://github.com/cybersecsi/robodroid'>
             <button className='button-gray'>Try it</button>
