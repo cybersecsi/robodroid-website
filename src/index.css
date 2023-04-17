@@ -19,11 +19,41 @@
   a {
     @apply default-tr;
   }
+  header {
+    @apply py-2;
+  }
+  footer {
+    @apply bg-gray-900 text-slate-100 py-8;
+  }
 }
 
 @layer components {
-  .robodroid-footer {
-    @apply bg-gray-900 text-slate-100 py-8;
+  .mini-container {
+    @apply container;
+    @apply max-w-5xl px-2;
+  }
+  .button {
+    @apply flex items-center disabled:bg-gray-500 h-10 py-2 px-4 rounded-md default-tr;
+  }
+  .button-common {
+    @apply button;
+    @apply text-white;
+    @apply bg-cyan-700 disabled:bg-gray-500 hover:bg-cyan-800 active:bg-cyan-900;
+  }
+  .button-red {
+    @apply button;
+    @apply bg-red-600 disabled:bg-gray-500	hover:bg-red-700 active:bg-red-800 text-white;
+  }
+  .button-gray {
+    @apply button;
+    @apply bg-gray-200 disabled:bg-gray-500 hover:bg-gray-300 active:bg-gray-400;
+  }
+  .button-green {
+    @apply button;
+    @apply bg-emerald-500 disabled:bg-gray-500 hover:bg-emerald-600 active:bg-emerald-700 text-white;
+  }
+  .custom-tab-list {
+    @apply flex gap-6 mb-4;
   }
 }
 

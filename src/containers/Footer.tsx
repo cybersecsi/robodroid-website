@@ -2,8 +2,8 @@ import { FaGithub, FaTwitter } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className='robodroid-footer'>
-      <div className='container flex mx-auto justify-between'>
+    <footer>
+      <div className='mini-container flex mx-auto justify-between'>
         {/* Left links */}
         <div className='flex'>
           <a
