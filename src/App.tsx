@@ -1,16 +1,16 @@
-import appLogo from '@robodroid/assets/logo.png';
+import AppRouter from '@robodroid/AppRouter';
+import { RouterProvider } from 'react-router-dom';
+import { Toaster } from 'react-hot-toast';
+import { ThemeProvider } from '@robodroid/context';
+import 'tippy.js/dist/tippy.css'; // optional
 
-function App() {
+const App = () => {
   return (
-    <div className='App'>
-      <div>
-        <a href='https://secsi.io' target='_blank' rel='noreferrer'>
-          <img src={appLogo} className='logo react' alt='React logo' />
-        </a>
-      </div>
-      <h1>RoboDroid</h1>
-    </div>
+    <ThemeProvider>
+      <RouterProvider router={AppRouter} />
+      <Toaster position='bottom-left' />
+    </ThemeProvider>
   );
-}
+};
 
 export default App;
