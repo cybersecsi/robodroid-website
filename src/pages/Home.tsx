@@ -1,12 +1,14 @@
 import { useCallback, useState } from 'react';
 import { loadFull } from 'tsparticles';
 import Particles from 'react-tsparticles';
-import { options } from '@robodroid/utils/particles';
 import { Engine } from 'tsparticles-engine';
+import { ClipboardCode } from '@robodroid/components';
+import { particlesOptions } from '@robodroid/utils/particles';
 
 // Assets
 import appLogo from '@robodroid/assets/logo.png';
 import exampleKillChain from '@robodroid/assets/kill-chain-example.png';
+import howItWorks from '@robodroid/assets/how-it-works.png';
 
 // Library screenshots
 import k9MailSetup from '@robodroid/assets/k9-mail-setup.jpg';
@@ -54,7 +56,7 @@ const Home = () => {
     <>
       {/* Hero section */}
       <div className='hero'>
-        <Particles className='particles' options={options} init={particlesInit} />
+        <Particles className='particles' options={particlesOptions} init={particlesInit} />
         <div className='relative flex flex-col gap-8 items-center justify-center h-full'>
           <img src={appLogo} className='h-60' alt='RoboDroid Logo' />
           <h1 className='text-slate-100'>RoboDroid</h1>
@@ -142,6 +144,31 @@ const Home = () => {
             allowFullScreen
             title='Embedded youtube'
           />
+        </div>
+      </div>
+
+      {/* Quickstart section */}
+      <div className='container flex mx-auto flex-col justify-center items-center gap-8 text-slate-800 p-8'>
+        <h2 className='text-center'>Quickstart</h2>
+        <div className='flex flex-col items-center gap-4 text-center'>
+          <p>You can easily install it by running:</p>
+          <div className='w-full'>
+            <ClipboardCode fixedBtn={true}>pipx install robodroid</ClipboardCode>
+          </div>
+          <p>
+            We suggest you to use <code>pipx</code> instead of <code>pip</code> because in future
+            Python versions package installation with <code>pip</code> will be removed outside
+            virtual environments.
+          </p>
+          <p>
+            RoboDroid has built-in support for automatic behaviors download and update from the
+            RoboDroid Library repository, so you don&apos;t need to install it.
+          </p>
+          <p>
+            After installing RoboDroid you just need to create a config file for the workflow (list
+            of behaviors) you want to run:
+          </p>
+          <img src={howItWorks} className='max-w-2xl' />
         </div>
       </div>
     </>

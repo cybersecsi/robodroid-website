@@ -1,4 +1,4 @@
-export const options = {
+export const particlesOptions = {
   background: {
     color: '#001319',
   },
