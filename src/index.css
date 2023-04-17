@@ -11,8 +11,7 @@
   body {
     @apply overflow-x-hidden scroll-smooth;
     @apply min-h-screen;
-    @apply bg-slate-100 dark:bg-slate-700;
-    @apply dark:text-slate-100;
+    @apply bg-slate-100;
     @apply font-Josefin;
   }
   #root {

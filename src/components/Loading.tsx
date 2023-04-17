@@ -11,7 +11,7 @@ const Loading = (props: ILoadingProps) => {
         props.blur ? 'blur-bg' : 'bg-slate-900'
       }`}
     >
-      <div className='bg-white dark:bg-gray-800 m-auto rounded-md overflow-hidden p-6 shadow-lg'>
+      <div className='bg-white m-auto rounded-md overflow-hidden p-6 shadow-lg'>
         <Spinner size='60' color='rgb(225 29 72)' />
       </div>
     </div>

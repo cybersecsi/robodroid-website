@@ -35,7 +35,7 @@ const Modal = (props: IModalProps) => {
       <div className='w-full h-full backdrop-blur-sm flex justify-start absolute bottom-0 left-0 blur-bg z-50'>
         <div
           ref={ref}
-          className={`${modalClasses} p-10 bg-white dark:bg-gray-800 m-auto top-2 rounded-md max-h-screen overflow-y-scroll`}
+          className={`${modalClasses} p-10 bg-white m-auto top-2 rounded-md max-h-screen overflow-y-scroll`}
         >
           <div className='flex justify-between relative align-center'>
             <h3 className='flex-1 text-center text-4xl font-bold py-2'>{props.title}</h3>
