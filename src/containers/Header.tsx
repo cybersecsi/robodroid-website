@@ -31,7 +31,7 @@ const Header = () => {
           {sections.map((section: INavlink, key: number) => {
             return (
               <button
-                className={`default-tr text-gray-400  ${
+                className={`default-tr text-gray-400 hidden md:block  ${
                   headerFixed ? 'hover:text-slate-800' : 'hover:text-slate-100'
                 }`}
                 onClick={() => scrollToSection(section.ref)}

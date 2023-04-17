@@ -106,7 +106,7 @@ const Home = () => {
       <div className='bg-white p-8 flex flex-col gap-4 text-slate-800' ref={overviewSectionRef}>
         <h2 className='text-center'>Overview</h2>
         <div className='container card bg-slate-100 border-0 mx-auto gap-8 grid grid-cols-5 p-4'>
-          <div className='flex flex-col gap-4 col-span-2'>
+          <div className='flex flex-col gap-4 col-span-5 md:col-span-2'>
             <h3 className='text-center'>
               ⚡ Manage Android machines with pre-defined behaviors for Cyber Range environments.
             </h3>
@@ -122,7 +122,7 @@ const Home = () => {
               the link contained in the email, and subsequently downloading a malware.
             </p>
           </div>
-          <div className='col-span-3'>
+          <div className='col-span-5 md:col-span-3'>
             <img src={exampleKillChain} alt='Kill Chain Example' />
           </div>
         </div>
@@ -130,13 +130,13 @@ const Home = () => {
 
       {/* Library section */}
       <div className='relative' ref={librarySectionRef}>
-        <div className='container flex flex-col mx-auto h-[calc(100vh-5rem)] py-8 justify-between text-slate-800'>
+        <div className='container flex flex-col p-4 mx-auto md:h-[calc(100vh-5rem)] py-8 justify-between text-slate-800'>
           <h2 className='text-center'>RoboDroid Library</h2>
           <div className='grid grid-cols-2 items-center gap-8'>
             {robodroidLibrary.map((behavior: ILibraryInfo, index: number) => {
               return (
                 <div className={currentCarouselItem === index ? 'contents' : 'hidden'} key={index}>
-                  <div className='flex justify-end'>
+                  <div className='flex justify-center md:justify-end col-span-2 md:col-span-1'>
                     <div className=' border-[12px] rounded-3xl border-slate-800 drop-shadow-2xl shadow-2xl'>
                       <img
                         src={behavior.screenshot}
@@ -145,7 +145,7 @@ const Home = () => {
                       />
                     </div>
                   </div>
-                  <div className='animate__animated animate__slideInDown'>
+                  <div className='animate__animated animate__slideInDown col-span-2 md:col-span-1 text-justify mb-4'>
                     <h3>{behavior.name}</h3>
                     <p>{behavior.description}</p>
                   </div>
@@ -190,8 +190,7 @@ const Home = () => {
         <div className='container flex mx-auto flex-col justify-center items-center gap-8 text-slate-800'>
           <h2 className='text-center'>Demo</h2>
           <iframe
-            width='853'
-            height='480'
+            className='w-full   aspect-video'
             src={`https://www.youtube.com/embed/jn8OQZyNLD4`}
             allow='autoplay; picture-in-picture'
             allowFullScreen
@@ -224,7 +223,7 @@ const Home = () => {
             After installing RoboDroid you just need to create a config file for the workflow (list
             of behaviors) you want to run:
           </p>
-          <img src={howItWorks} className='max-w-2xl' alt='How RoboDroid works' />
+          <img src={howItWorks} className='max-w-10/12 md:max-w-2xl' alt='How RoboDroid works' />
         </div>
       </div>
     </>
