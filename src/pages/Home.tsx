@@ -87,7 +87,7 @@ const Home = () => {
             </p>
           </div>
           <div className='col-span-3'>
-            <img src={exampleKillChain} />
+            <img src={exampleKillChain} alt='Kill Chain Example' />
           </div>
         </div>
       </div>
@@ -104,6 +104,7 @@ const Home = () => {
                     <div className=' border-[12px] rounded-3xl border-slate-800 drop-shadow-2xl shadow-2xl'>
                       <img
                         src={behavior.screenshot}
+                        alt={behavior.name}
                         className='animate__animated animate__fadeIn rounded-xl object-contain max-h-full h-[calc(100vh-200px)]'
                       />
                     </div>
@@ -184,7 +185,7 @@ const Home = () => {
             After installing RoboDroid you just need to create a config file for the workflow (list
             of behaviors) you want to run:
           </p>
-          <img src={howItWorks} className='max-w-2xl' />
+          <img src={howItWorks} className='max-w-2xl' alt='How RoboDroid works' />
         </div>
       </div>
     </>
