@@ -25,7 +25,7 @@ const robodroidLibrary: ILibraryInfo[] = [
   {
     name: 'K9 Mail Account Setup',
     description:
-      'This behavior automatically performs the setup of an email account on the K9 Mail Android app.',
+      'This behavior automatically performs the setup of an email account on the K9 Mail Android app. This feature is particularly useful in a cyber range environment, where users may need to quickly set up multiple email accounts in order to simulate different scenarios. By automating the email account setup process, users can save time and reduce the risk of errors that can occur when manually entering server settings. This allows users to focus on the tasks at hand, rather than getting bogged down in the setup process.',
     screenshot: k9MailSetup,
   },
   {
@@ -37,7 +37,7 @@ const robodroidLibrary: ILibraryInfo[] = [
   {
     name: 'Firefox Android Open Link and Download',
     description:
-      'This behavior automatically performs the download of a given resource based on an input URL using the Firefox Android app',
+      'This behavior automatically performs the download of a given resource based on an input URL using the Firefox Android app. This behavior enables the user to simulate a person that mistakenly clicks on a link, downloads and installs a malicious file. This feature is particularly useful in cyber range environment.',
     screenshot: firefoxAndroidDownload,
   },
 ];
