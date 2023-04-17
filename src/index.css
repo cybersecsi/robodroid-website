@@ -114,6 +114,9 @@
     @apply h-full;
     @apply rounded-r;
   }
+  .carousel-chevron {
+    @apply absolute my-auto inset-y-0 text-slate-400 hover:text-slate-800 default-tr cursor-pointer;
+  }
 }
 
 @layer utilities {

@@ -4,7 +4,7 @@ import Particles from 'react-tsparticles';
 import { Engine } from 'tsparticles-engine';
 import { ClipboardCode } from '@robodroid/components';
 import { particlesOptions } from '@robodroid/utils/particles';
-
+import { BsChevronLeft, BsChevronRight } from 'react-icons/bs';
 // Assets
 import appLogo from '@robodroid/assets/logo.png';
 import exampleKillChain from '@robodroid/assets/kill-chain-example.png';
@@ -93,41 +93,58 @@ const Home = () => {
       </div>
 
       {/* Library section */}
-      <div className='container flex flex-col mx-auto h-screen py-8 justify-between text-slate-800'>
-        <h2 className='text-center'>RoboDroid Library</h2>
-        <div className='grid grid-cols-2 items-center gap-8'>
-          {robodroidLibrary.map((behavior: ILibraryInfo, index: number) => {
-            return (
-              <div className={currentCarouselItem === index ? 'contents' : 'hidden'} key={index}>
-                <div className='flex justify-end'>
-                  <div className=' border-[12px] rounded-3xl border-slate-800 drop-shadow-2xl shadow-2xl'>
-                    <img
-                      src={behavior.screenshot}
-                      className='animate__animated animate__fadeIn rounded-xl object-contain max-h-full h-[calc(100vh-200px)]'
-                    />
+      <div className='relative'>
+        <div className='container flex flex-col mx-auto h-screen py-8 justify-between text-slate-800'>
+          <h2 className='text-center'>RoboDroid Library</h2>
+          <div className='grid grid-cols-2 items-center gap-8'>
+            {robodroidLibrary.map((behavior: ILibraryInfo, index: number) => {
+              return (
+                <div className={currentCarouselItem === index ? 'contents' : 'hidden'} key={index}>
+                  <div className='flex justify-end'>
+                    <div className=' border-[12px] rounded-3xl border-slate-800 drop-shadow-2xl shadow-2xl'>
+                      <img
+                        src={behavior.screenshot}
+                        className='animate__animated animate__fadeIn rounded-xl object-contain max-h-full h-[calc(100vh-200px)]'
+                      />
+                    </div>
+                  </div>
+                  <div className='animate__animated animate__slideInDown'>
+                    <h3>{behavior.name}</h3>
+                    <p>{behavior.description}</p>
                   </div>
                 </div>
-                <div className='animate__animated animate__slideInDown'>
-                  <h3>{behavior.name}</h3>
-                  <p>{behavior.description}</p>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-        {/* Carousel dots */}
-        <div className='flex gap-4 justify-center'>
-          {robodroidLibrary.map((_v: ILibraryInfo, index: number) => {
-            return (
-              <button
-                className={`w-2 h-2 rounded ${
-                  currentCarouselItem === index ? 'bg-slate-400' : 'bg-slate-900'
-                }`}
-                onClick={() => setCurrentCarouselItem(index)}
-                key={index}
-              />
-            );
-          })}
+              );
+            })}
+          </div>
+          {/* Carousel dots */}
+          <div className='flex gap-4 justify-center'>
+            {robodroidLibrary.map((_v: ILibraryInfo, index: number) => {
+              return (
+                <button
+                  className={`w-2 h-2 rounded ${
+                    currentCarouselItem === index ? 'bg-slate-400' : 'bg-slate-900'
+                  }`}
+                  onClick={() => setCurrentCarouselItem(index)}
+                  key={index}
+                />
+              );
+            })}
+          </div>
+          {/* Chevrons */}
+          {currentCarouselItem > 0 && (
+            <BsChevronLeft
+              className='carousel-chevron left-8 animate__animated animate__fadeIn'
+              size={36}
+              onClick={() => setCurrentCarouselItem((old: number) => old - 1)}
+            />
+          )}
+          {currentCarouselItem < robodroidLibrary.length - 1 && (
+            <BsChevronRight
+              className='carousel-chevron right-8 animate__animated animate__fadeIn'
+              size={36}
+              onClick={() => setCurrentCarouselItem((old: number) => old + 1)}
+            />
+          )}
         </div>
       </div>
 
@@ -139,8 +156,7 @@ const Home = () => {
             width='853'
             height='480'
             src={`https://www.youtube.com/embed/jn8OQZyNLD4`}
-            frameBorder='0'
-            allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+            allow='autoplay; picture-in-picture'
             allowFullScreen
             title='Embedded youtube'
           />
