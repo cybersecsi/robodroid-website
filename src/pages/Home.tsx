@@ -1,10 +1,12 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { loadFull } from 'tsparticles';
 import Particles from 'react-tsparticles';
 import { Engine } from 'tsparticles-engine';
+import { BsChevronLeft, BsChevronRight, BsChevronDoubleDown } from 'react-icons/bs';
+import { useSections } from '@robodroid/context';
 import { ClipboardCode } from '@robodroid/components';
 import { particlesOptions } from '@robodroid/utils/particles';
-import { BsChevronLeft, BsChevronRight, BsChevronDoubleDown } from 'react-icons/bs';
+import { INavlink } from '@robodroid/types/context';
 
 // Assets
 import appLogo from '@robodroid/assets/logo.png';
@@ -45,6 +47,35 @@ const robodroidLibrary: ILibraryInfo[] = [
 
 const Home = () => {
   const [currentCarouselItem, setCurrentCarouselItem] = useState<number>(0);
+  const { setSections, scrollToSection } = useSections();
+
+  // Section refs
+  const overviewSectionRef = useRef<any>();
+  const librarySectionRef = useRef<any>();
+  const demoSectionRef = useRef<any>();
+  const quickstartSectionRef = useRef<any>();
+
+  useEffect(() => {
+    const homeSections: INavlink[] = [
+      {
+        name: 'Overview',
+        ref: overviewSectionRef,
+      },
+      {
+        name: 'Library',
+        ref: librarySectionRef,
+      },
+      {
+        name: 'Demo',
+        ref: demoSectionRef,
+      },
+      {
+        name: 'Quickstart',
+        ref: quickstartSectionRef,
+      },
+    ];
+    setSections(homeSections);
+  }, [overviewSectionRef]);
 
   const particlesInit = useCallback(async (engine: Engine) => {
     // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
@@ -61,9 +92,9 @@ const Home = () => {
         <div className='relative flex flex-col gap-8 items-center justify-center h-full'>
           <img src={appLogo} className='h-60' alt='RoboDroid Logo' />
           <h1 className='text-slate-100'>RoboDroid</h1>
-          <a href='https://secsi.io' target='_blank' rel='noreferrer'>
-            <button className='button-common'>Learn More</button>
-          </a>
+          <button className='button-common' onClick={() => scrollToSection(overviewSectionRef)}>
+            Learn More
+          </button>
           <BsChevronDoubleDown
             size={62}
             className='animate__animated animate__pulse animate__infinite absolute inset-x-0 mx-auto bottom-6 text-slate-100'
@@ -72,7 +103,7 @@ const Home = () => {
       </div>
 
       {/* Overview section */}
-      <div className='bg-white p-8 flex flex-col gap-4 text-slate-800'>
+      <div className='bg-white p-8 flex flex-col gap-4 text-slate-800' ref={overviewSectionRef}>
         <h2 className='text-center'>Overview</h2>
         <div className='container card bg-slate-100 border-0 mx-auto gap-8 grid grid-cols-5 p-4'>
           <div className='flex flex-col gap-4 col-span-2'>
@@ -98,8 +129,8 @@ const Home = () => {
       </div>
 
       {/* Library section */}
-      <div className='relative'>
-        <div className='container flex flex-col mx-auto h-screen py-8 justify-between text-slate-800'>
+      <div className='relative' ref={librarySectionRef}>
+        <div className='container flex flex-col mx-auto h-[calc(100vh-5rem)] py-8 justify-between text-slate-800'>
           <h2 className='text-center'>RoboDroid Library</h2>
           <div className='grid grid-cols-2 items-center gap-8'>
             {robodroidLibrary.map((behavior: ILibraryInfo, index: number) => {
@@ -110,7 +141,7 @@ const Home = () => {
                       <img
                         src={behavior.screenshot}
                         alt={behavior.name}
-                        className='animate__animated animate__fadeIn rounded-xl object-contain max-h-full h-[calc(100vh-200px)]'
+                        className='animate__animated animate__fadeIn rounded-xl object-contain max-h-full h-[calc(100vh-300px)]'
                       />
                     </div>
                   </div>
@@ -155,7 +186,7 @@ const Home = () => {
       </div>
 
       {/* Demo section */}
-      <div className='bg-white p-8'>
+      <div className='bg-white p-8' ref={demoSectionRef}>
         <div className='container flex mx-auto flex-col justify-center items-center gap-8 text-slate-800'>
           <h2 className='text-center'>Demo</h2>
           <iframe
@@ -170,7 +201,10 @@ const Home = () => {
       </div>
 
       {/* Quickstart section */}
-      <div className='container flex mx-auto flex-col justify-center items-center gap-8 text-slate-800 p-8'>
+      <div
+        className='container flex mx-auto flex-col justify-center items-center gap-8 text-slate-800 p-8'
+        ref={quickstartSectionRef}
+      >
         <h2 className='text-center'>Quickstart</h2>
         <div className='flex flex-col items-center gap-4 text-center'>
           <p>You can easily install it by running:</p>

@@ -5,6 +5,9 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    @apply scroll-smooth;
+  }
   body {
     @apply overflow-x-hidden scroll-smooth;
     @apply min-h-screen;
