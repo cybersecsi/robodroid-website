@@ -3,7 +3,7 @@ import { FaGithub, FaTwitter } from 'react-icons/fa';
 const Footer = () => {
   return (
     <footer>
-      <div className='mini-container flex mx-auto justify-between'>
+      <div className='mini-container mx-auto grid grid-cols-3'>
         {/* Left links */}
         <div className='flex'>
           <a
@@ -24,7 +24,7 @@ const Footer = () => {
           </a>
         </div>
         {/* SecSI credits */}
-        <div>
+        <div className='text-center'>
           A{' '}
           <a
             className='text-sky-500 hover:text-sky-400'
@@ -37,7 +37,9 @@ const Footer = () => {
           project
         </div>
         {/* Copyright */}
-        <span>Copyright &copy; {new Date().getFullYear()} All rights reserved.</span>
+        <div className='text-right'>
+          Copyright &copy; {new Date().getFullYear()} All rights reserved.
+        </div>
       </div>
     </footer>
   );

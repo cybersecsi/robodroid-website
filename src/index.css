@@ -19,11 +19,21 @@
   a {
     @apply default-tr;
   }
+  h1 {
+    @apply text-6xl font-semibold;
+  }
   header {
-    @apply py-2;
+    @apply bg-cDark h-20 py-2;
   }
   footer {
-    @apply bg-gray-900 text-slate-100 py-8;
+    @apply bg-cDark text-slate-100 py-8;
+  }
+  .hero {
+    @apply relative;
+    @apply h-[calc(100vh-5rem)];
+  }
+  .particles {
+    @apply absolute w-full h-full;
   }
 }
 

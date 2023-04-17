@@ -10,7 +10,7 @@ const Header = () => {
         </Link>
         <div>
           <a href='https://github.com/cybersecsi/robodroid'>
-            <button className='button-common'>Try it</button>
+            <button className='button-gray'>Try it</button>
           </a>
         </div>
       </div>
